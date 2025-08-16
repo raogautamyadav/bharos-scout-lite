@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Basic config via env or defaults
 const REGION = process.env.REGION || "IN";
 const DEFAULT_CATEGORIES = process.env.DEFAULT_CATEGORIES || "home_kitchen,beauty_personal_care,mobile_accessories";
 const ASP_BAND = process.env.ASP_BAND || "499-1999";
@@ -19,7 +18,6 @@ app.get("/api/health", (_req, res) => {
 res.json({ ok: true, ts: Date.now(), region: REGION });
 });
 
-// Fake “Top 20” placeholder so page renders without a backend
 app.get("/api/top20", (req, res) => {
 const demo = Array.from({ length: 10 }).map((, i) => ({
 rank: i + 1,
